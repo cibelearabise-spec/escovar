@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicativo Odontológico - UI</title>
+    <title>Aplicativo Odontológico - UI Glow</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -11,38 +11,47 @@
         
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #030712;
+            background-color: #03050c;
         }
 
-        /* Ocultar barra de rolagem mantendo a navegação fluida */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Efeitos avançados de UI (Glassmorphism e Glow) */
+        /* Estilo Glassmorphism Escuro Avançado */
         .glass-card-dark {
-            background: linear-gradient(135deg, rgba(18, 28, 37, 0.85) 0%, rgba(12, 19, 26, 0.95) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            background: rgba(13, 17, 32, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
         }
 
+        /* Cartão Verde Menta Brilhante */
         .glass-card-mint {
             background: linear-gradient(135deg, #4ade80 0%, #2dd4bf 100%);
-            box-shadow: 0 12px 35px -8px rgba(45, 212, 191, 0.25);
+            box-shadow: 0 12px 35px -8px rgba(45, 212, 191, 0.35);
         }
 
-        .glow-mint {
-            box-shadow: 0 0 25px rgba(45, 212, 191, 0.2);
+        /* Fundo com efeito de luzes azuladas e roxas brilhantes */
+        .neon-mesh-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.35) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(147, 51, 234, 0.35) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.2) 0%, transparent 60%),
+                        #080b16;
         }
     </style>
 </head>
 <body class="text-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
 
-    <!-- Moldura Realista do Smartphone -->
-    <div class="w-[380px] h-[780px] bg-[#0c131a] rounded-[48px] border-[10px] border-gray-900 flex flex-col justify-between p-5 relative shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden">
+    <!-- Moldura Realista do Smartphone com Fundo Azul/Roxo Brilhante e Pontos de Luz -->
+    <div class="w-[380px] h-[780px] neon-mesh-bg rounded-[48px] border-[10px] border-gray-900 flex flex-col justify-between p-5 relative shadow-[0_25px_60px_-15px_rgba(37,99,235,0.4)] overflow-hidden">
         
+        <!-- Elementos Extras de Pontos de Luz (Glow Spots) decorativos internos -->
+        <div class="absolute -top-12 -left-12 w-40 h-40 bg-blue-500/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-purple-600/30 rounded-full blur-3xl pointer-events-none"></div>
+
         <!-- BARRA DE TOPO (IOS Style) -->
-        <div class="flex justify-between items-center text-xs font-semibold text-gray-400 mb-2 shrink-0 px-1">
+        <div class="flex justify-between items-center text-xs font-semibold text-gray-400 mb-2 shrink-0 px-1 relative z-10">
             <span>9:41</span>
             <div class="w-24 h-4 bg-black rounded-full absolute left-1/2 -translate-x-1/2 top-1"></div>
             <div class="flex items-center space-x-2 text-[11px]">
@@ -52,8 +61,8 @@
             </div>
         </div>
 
-        <!-- CONTEÚDO DAS TELAS (Com rolagem personalizada) -->
-        <div class="flex-1 overflow-y-auto no-scrollbar relative space-y-4 pt-1">
+        <!-- CONTEÚDO DAS TELAS -->
+        <div class="flex-1 overflow-y-auto no-scrollbar relative z-10 space-y-4 pt-1">
 
             <!-- ================= TELA 1: SEU PAINEL ================= -->
             <div id="screen-dashboard" class="space-y-4 pb-6">
@@ -70,11 +79,11 @@
 
                 <!-- Ícones de Categoria Superior -->
                 <div class="flex justify-between items-center glass-card-dark p-3 rounded-2xl">
-                    <div class="w-10 h-10 rounded-xl bg-teal-400 text-gray-950 flex items-center justify-center text-base shadow-md shadow-teal-500/20"><i class="fa-solid fa-tooth"></i></div>
-                    <div class="w-10 h-10 rounded-xl bg-[#16222c] text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-user-doctor"></i></div>
-                    <div class="w-10 h-10 rounded-xl bg-[#16222c] text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-sparkles"></i></div>
-                    <div class="w-10 h-10 rounded-xl bg-[#16222c] text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-calendar-days"></i></div>
-                    <div class="w-10 h-10 rounded-xl bg-[#16222c] text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-user-gear"></i></div>
+                    <div class="w-10 h-10 rounded-xl bg-teal-400 text-gray-950 flex items-center justify-center text-base shadow-md shadow-teal-500/30"><i class="fa-solid fa-tooth"></i></div>
+                    <div class="w-10 h-10 rounded-xl bg-white/5 text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div class="w-10 h-10 rounded-xl bg-white/5 text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-sparkles"></i></div>
+                    <div class="w-10 h-10 rounded-xl bg-white/5 text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div class="w-10 h-10 rounded-xl bg-white/5 text-gray-400 flex items-center justify-center text-base hover:text-teal-400 transition cursor-pointer"><i class="fa-solid fa-user-gear"></i></div>
                 </div>
 
                 <!-- Filtros de Status -->
@@ -103,7 +112,7 @@
                     </div>
                 </div>
 
-                <!-- Grade de Atalhos (Estilo Menta UI nos blocos) -->
+                <!-- Grade de Atalhos -->
                 <div class="grid grid-cols-2 gap-3">
                     <div class="glass-card-mint text-gray-950 p-3.5 rounded-2xl flex justify-between items-center cursor-pointer transition transform hover:scale-[1.02]">
                         <div>
@@ -172,8 +181,8 @@
                         </div>
                     </div>
                     <div class="flex space-x-2">
-                        <div class="w-8 h-8 rounded-full bg-[#182531] text-teal-400 flex items-center justify-center text-xs shadow"><i class="fa-solid fa-calendar"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-[#182531] text-gray-400 flex items-center justify-center text-xs"><i class="fa-solid fa-pen"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white/5 text-teal-400 flex items-center justify-center text-xs shadow"><i class="fa-solid fa-calendar"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white/5 text-gray-400 flex items-center justify-center text-xs"><i class="fa-solid fa-pen"></i></div>
                     </div>
                 </div>
 
@@ -185,7 +194,7 @@
                 </div>
 
                 <!-- Visualização 3D/Gráfica do Dente com Efeito Glow -->
-                <div class="glass-card-dark border-teal-500/20 rounded-3xl p-5 text-center relative glow-mint overflow-hidden">
+                <div class="glass-card-dark border-teal-500/20 rounded-3xl p-5 text-center relative overflow-hidden shadow-[0_0_20px_rgba(45,212,191,0.15)]">
                     <div class="absolute top-3 left-3 text-teal-400 text-sm"><i class="fa-solid fa-tooth"></i></div>
                     <div class="absolute top-3 right-3 text-teal-400 text-sm"><i class="fa-solid fa-sparkles"></i></div>
                     <div class="absolute bottom-3 left-3 text-teal-400 text-xs"><i class="fa-solid fa-shield-halved"></i></div>
@@ -203,7 +212,7 @@
                         <p class="text-[10px] text-gray-400 flex items-center justify-center gap-1"><i class="fa-regular fa-calendar"></i> Data</p>
                         <p class="text-xs font-bold text-gray-200 mt-1">18 Mai, 2024</p>
                     </div>
-                    <div class="border-x border-gray-800/80">
+                    <div class="border-x border-white/5">
                         <p class="text-[10px] text-gray-400 flex items-center justify-center gap-1"><i class="fa-regular fa-clock"></i> Horário</p>
                         <p class="text-xs font-bold text-gray-200 mt-1">10:00</p>
                     </div>
@@ -228,13 +237,13 @@
                         </div>
                     </div>
 
-                    <div class="glass-card-dark text-gray-100 p-4 rounded-3xl flex flex-col justify-between cursor-pointer transition hover:bg-[#16222c]" onclick="switchScreen('documents')">
+                    <div class="glass-card-dark text-gray-100 p-4 rounded-3xl flex flex-col justify-between cursor-pointer transition hover:bg-white/10" onclick="switchScreen('documents')">
                         <div>
                             <div class="flex justify-between items-start mb-2">
                                 <span class="text-xs font-bold text-gray-300">Faturas</span>
-                                <div class="w-6 h-6 rounded-full bg-[#1a2633] text-gray-300 flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-up-right"></i></div>
+                                <div class="w-6 h-6 rounded-full bg-white/5 text-gray-300 flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-up-right"></i></div>
                             </div>
-                            <div class="w-8 h-8 rounded-xl bg-[#1a2633] text-teal-400 flex items-center justify-center mb-2"><i class="fa-solid fa-receipt text-sm"></i></div>
+                            <div class="w-8 h-8 rounded-xl bg-white/5 text-teal-400 flex items-center justify-center mb-2"><i class="fa-solid fa-receipt text-sm"></i></div>
                         </div>
                         <div>
                             <p class="text-lg font-extrabold">2 <span class="text-xs text-gray-400 font-normal">Em aberto</span></p>
@@ -261,10 +270,10 @@
                     <p class="text-xs text-gray-400 mb-3 font-medium">27 Ago 1990</p>
                     
                     <div class="flex items-center space-x-[-10px] mb-2">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" class="w-8 h-8 rounded-full border-2 border-[#121c25] object-cover shadow" alt="Doc 1">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-8 h-8 rounded-full border-2 border-[#121c25] object-cover shadow" alt="Doc 2">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" class="w-8 h-8 rounded-full border-2 border-[#121c25] object-cover shadow" alt="Doc 3">
-                        <div class="w-8 h-8 rounded-full bg-teal-400 text-gray-950 font-bold flex items-center justify-center text-xs border-2 border-[#121c25] shadow">+</div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" class="w-8 h-8 rounded-full border-2 border-[#0c131a] object-cover shadow" alt="Doc 1">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-8 h-8 rounded-full border-2 border-[#0c131a] object-cover shadow" alt="Doc 2">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" class="w-8 h-8 rounded-full border-2 border-[#0c131a] object-cover shadow" alt="Doc 3">
+                        <div class="w-8 h-8 rounded-full bg-teal-400 text-gray-950 font-bold flex items-center justify-center text-xs border-2 border-[#0c131a] shadow">+</div>
                     </div>
                     <div class="absolute right-4 bottom-4 text-[11px] font-semibold text-gray-400">34 anos (F)</div>
                 </div>
@@ -301,26 +310,26 @@
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="text-sm font-extrabold text-gray-200">Histórico de Tratamentos</h4>
                         <div class="flex space-x-1.5">
-                            <button class="w-6 h-6 rounded-full bg-[#182531] text-gray-400 flex items-center justify-center text-[10px]"><i class="fa-solid fa-arrow-down"></i></button>
-                            <button class="w-6 h-6 rounded-full bg-[#182531] text-gray-400 flex items-center justify-center text-[10px]"><i class="fa-solid fa-arrow-up-right"></i></button>
+                            <button class="w-6 h-6 rounded-full bg-white/5 text-gray-400 flex items-center justify-center text-[10px]"><i class="fa-solid fa-arrow-down"></i></button>
+                            <button class="w-6 h-6 rounded-full bg-white/5 text-gray-400 flex items-center justify-center text-[10px]"><i class="fa-solid fa-arrow-up-right"></i></button>
                         </div>
                     </div>
 
                     <div class="relative border-l-2 border-teal-500/30 ml-2 pl-4 space-y-4">
                         <div class="relative">
-                            <div class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-teal-400 border-2 border-[#121c25] shadow-[0_0_8px_rgba(45,212,191,0.8)]"></div>
+                            <div class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-teal-400 border-2 border-[#0c131a] shadow-[0_0_8px_rgba(45,212,191,0.8)]"></div>
                             <p class="text-[10px] text-teal-400 font-bold">18 de Mai, 2024</p>
                             <p class="text-xs font-bold text-gray-100">Limpeza Dentária</p>
                             <p class="text-xs text-gray-400 font-mono">R$ 120,00</p>
                         </div>
                         <div class="relative">
-                            <div class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-gray-600 border-2 border-[#121c25]"></div>
+                            <div class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-gray-600 border-2 border-[#0c131a]"></div>
                             <p class="text-[10px] text-gray-400 font-medium">12 de Fev, 2024</p>
                             <p class="text-xs font-bold text-gray-100">Restauração</p>
                             <p class="text-xs text-gray-400 font-mono">R$ 180,00</p>
                         </div>
                         <div class="relative">
-                            <div class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-gray-600 border-2 border-[#121c25]"></div>
+                            <div class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-gray-600 border-2 border-[#0c131a]"></div>
                             <p class="text-[10px] text-gray-400 font-medium">05 de Nov, 2023</p>
                             <p class="text-xs font-bold text-gray-100">Check-up</p>
                             <p class="text-xs text-gray-400 font-mono">R$ 90,00</p>
@@ -331,8 +340,8 @@
 
         </div>
 
-        <!-- BARRA DE NAVEGAÇÃO INFERIOR ESTILO IOS / APP -->
-        <div class="pt-3 border-t border-gray-800/60 shrink-0 flex justify-around items-center text-gray-400 text-lg">
+        <!-- BARRA DE NAVEGAÇÃO INFERIOR ESTILO GLASS -->
+        <div class="pt-3 border-t border-white/10 shrink-0 flex justify-around items-center text-gray-400 text-lg relative z-10">
             <button onclick="switchScreen('dashboard')" id="nav-btn-dashboard" class="text-teal-400 transition transform hover:scale-110 p-2">
                 <i class="fa-solid fa-house"></i>
             </button>
@@ -356,7 +365,6 @@
             const target = document.getElementById('screen-' + screenId);
             target.classList.remove('hidden');
 
-            // Atualização visual dos botões do menu inferior
             document.getElementById('nav-btn-dashboard').className = screenId === 'dashboard' ? 'text-teal-400 transition transform scale-110 p-2' : 'text-gray-400 transition hover:text-teal-400 p-2';
             document.getElementById('nav-btn-details').className = screenId === 'details' ? 'text-teal-400 transition transform scale-110 p-2' : 'text-gray-400 transition hover:text-teal-400 p-2';
             document.getElementById('nav-btn-documents').className = screenId === 'documents' ? 'text-teal-400 transition transform scale-110 p-2' : 'text-gray-400 transition hover:text-teal-400 p-2';
